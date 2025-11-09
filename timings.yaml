@@ -3,7 +3,7 @@ timing_runs:
     command: "nproc --all > /dev/null"
   - name: "python_cpu_count"
     command: "python3 -c 'import os; os.cpu_count()' > /dev/null"
-  - name: "cnproc_binary"
-    command: "./cnproc > /dev/null"
+  # - name: "cnproc_binary"
+    # command: "./cnproc > /dev/null"
 
 repetitions: 1000
