@@ -3,7 +3,7 @@ run:
     gcc -o cnproc cnproc.c
     export TIMINGS_CSV="timings.csv"
     export PLOT_PNG="timings.png"
-    uv run perf.py
+    uv run halfvio.py
     Rscript plot.r
 
 fmt:

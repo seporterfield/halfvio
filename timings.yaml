@@ -1,0 +1,12 @@
+output_filename: ${TIMINGS_CSV:-timings_results.csv}
+
+timing_runs:
+  - name: "nproc_shell"
+    command: "nproc --all > /dev/null"
+  - name: "python_cpu_count"
+    command: "python3 -c 'import os; os.cpu_count()' > /dev/null"
+  # - name: "cnproc_binary"
+    # command: "./cnproc > /dev/null"
+
+output: "timings.csv"
+repetitions: 1000

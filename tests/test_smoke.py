@@ -27,7 +27,7 @@ def plot_png() -> Generator[str, None, None]:
 def test_smoke(timings_csv, plot_png) -> None:
     os.environ["TIMINGS_CSV"] = timings_csv
     os.environ["PLOT_PNG"] = plot_png
-    from perf import generate_timing_data
+    from generate import generate_timing_data
     
     generate_timing_data([("ls", "ls")], timings_csv, repititions=1)
     subprocess.run(["Rscript", "plot.r"], env=os.environ.copy(), check=True)
