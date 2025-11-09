@@ -5,7 +5,7 @@ import json
 import uuid
 
 
-def generate_timing_data(commands, output_filename: str, repititions: int):
+def generate_timing_data(commands: list[tuple[str, str]], output_filename: str, repititions: int) -> None:
     results = []
     HYPERFINE_JSON_FILE = f"/tmp/hyperfine_results_{uuid.uuid4()}.json"
     commands_as_shell, command_names = zip(*commands)
@@ -41,7 +41,7 @@ def generate_timing_data(commands, output_filename: str, repititions: int):
         writer.writerows(results)
 
 
-def main():
+def main() -> None:
     output_filename = os.environ["TIMINGS_CSV"]
     commands = [
         ("nproc --all > /dev/null", "nproc"),
