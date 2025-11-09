@@ -4,7 +4,7 @@ A useful hyperfine and R plotting workflow.
 
 ```bash
 gcc -o cnproc cnproc.c
-export TIMINGS_CSV="cpu_count_hyperfine_distribution.csv"
+export TIMINGS_CSV="timings.csv"
 uv run perf.py
 Rscript plot.r
 ```
