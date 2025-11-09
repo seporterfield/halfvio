@@ -7,3 +7,10 @@ requires-python = ">=3.14"
 dependencies = [
     "matplotlib>=3.10.7",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.0",
+    "ruff>=0.14.4",
+    "ty>=0.0.1a25",
+]
