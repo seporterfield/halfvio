@@ -4,7 +4,7 @@ library(scales, include.only = c("trans_breaks", "trans_format", "math_format"))
 library(gghalves)
 
 TIMINGS_CSV <- Sys.getenv("TIMINGS_CSV")
-PLOT_PNG <- Sys.getenv("PLOT_PNG", unset = "timings.png")
+PLOT_PNG <- Sys.getenv("PLOT_PNG")
 timing_data <- read_csv(TIMINGS_CSV, show_col_types = FALSE)
 
 timing_plot <- ggplot(timing_data, aes(x = method, y = run_time_s, fill = method)) +
