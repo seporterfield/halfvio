@@ -4,6 +4,7 @@ run: fmt lint
     export TIMINGS_PARQUET="timings.parquet"
     export PLOT_PNG="timings.png"
     uv run halfvio.py
+    Rscript -e "renv::restore()"
     Rscript plot.r
 
 fmt:

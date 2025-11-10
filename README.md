@@ -3,6 +3,7 @@ A useful hyperfine and R plotting workflow.
 ## Usage
 
 ```bash
+Rscript -e "renv::restore()"
 just run
 ```
 
