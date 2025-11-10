@@ -8,6 +8,8 @@ just run
 Open `timings.png` and you should see half violin plots.
 ![half violin plot of two distributions](timings.png)
 
+Measure new commands in `timings.yaml`.
+Modify the run recipe in `justfile` to your liking.
 
 ## Requirements
 - hyperfine ~ 1.18.0
