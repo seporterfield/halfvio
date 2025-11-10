@@ -8,9 +8,9 @@ import yaml
 
 
 @pytest.fixture
-def timings_csv() -> Generator[str, None, None]:
+def timings_parquet() -> Generator[str, None, None]:
     try:
-        filename = os.path.join(tempfile.gettempdir(), f"timing_{uuid.uuid4()}.csv")
+        filename = os.path.join(tempfile.gettempdir(), f"timing_{uuid.uuid4()}.parquet")
         yield filename
     finally:
         os.unlink(filename)
@@ -34,7 +34,7 @@ def config_yaml() -> Generator[str, None, None]:
         os.unlink(filename)
 
 
-def test_smoke_interface(timings_csv: str, plot_png: str, config_yaml: str) -> None:
+def test_smoke_interface(timings_parquet: str, plot_png: str, config_yaml: str) -> None:
     yaml_config = {
         "timing_runs": [{"name": "test_ls", "command": "ls"}],
         "repetitions": 1,
@@ -43,7 +43,7 @@ def test_smoke_interface(timings_csv: str, plot_png: str, config_yaml: str) -> N
     with open(config_yaml, "w") as f:
         yaml.dump(yaml_config, f)
 
-    os.environ["TIMINGS_CSV"] = timings_csv
+    os.environ["TIMINGS_PARQUET"] = timings_parquet
     os.environ["PLOT_PNG"] = plot_png
 
     from halfvio import halfvio
@@ -52,4 +52,4 @@ def test_smoke_interface(timings_csv: str, plot_png: str, config_yaml: str) -> N
     subprocess.run(["Rscript", "plot.r"], env=os.environ.copy(), check=True)
 
     assert os.path.exists(plot_png)
-    assert os.path.exists(timings_csv)
+    assert os.path.exists(timings_parquet)

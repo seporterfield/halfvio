@@ -1,9 +1,10 @@
 import os
 import subprocess
-import csv
 import json
 import uuid
 import tempfile
+import pyarrow as pa
+import pyarrow.parquet as pq
 
 
 def generate_timing_data(
@@ -36,9 +37,12 @@ def generate_timing_data(
         for run_time_s in result["times"]:
             results.append({"run_time_s": run_time_s, "method": method_name})
 
-    with open(output_filename, mode="w", newline="") as file:
-        fieldnames = ["run_time_s", "method"]
-        writer = csv.DictWriter(file, fieldnames=fieldnames)
-
-        writer.writeheader()
-        writer.writerows(results)
+    table = pa.Table.from_arrays(
+        [
+            pa.array([r["run_time_s"] for r in results]),
+            pa.array([r["method"] for r in results]),
+        ],
+        names=["run_time_s", "method"],
+    )
+    
+    pq.write_table(table, output_filename)

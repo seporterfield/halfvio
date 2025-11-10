@@ -1,11 +1,11 @@
-library(readr)
+library(arrow)
 library(ggplot2)
 library(scales, include.only = c("trans_breaks", "trans_format", "math_format"))
 library(gghalves)
 
-TIMINGS_CSV <- Sys.getenv("TIMINGS_CSV")
+TIMINGS_PARQUET <- Sys.getenv("TIMINGS_PARQUET")
 PLOT_PNG <- Sys.getenv("PLOT_PNG")
-timing_data <- read_csv(TIMINGS_CSV, show_col_types = FALSE)
+timing_data <- read_parquet(TIMINGS_PARQUET)
 
 timing_plot <- ggplot(timing_data, aes(x = method, y = run_time_s, fill = method)) +
   geom_half_violin(

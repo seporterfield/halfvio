@@ -14,7 +14,7 @@ def halfvio(config_yaml: str = DEFAULT_YAML):
         (item["command"], item["name"]) for item in config["timing_runs"]
     ]
 
-    output_file = os.environ["TIMINGS_CSV"]
+    output_file = os.environ["TIMINGS_PARQUET"]
     repetitions = config["repetitions"]
 
     generate_timing_data(
