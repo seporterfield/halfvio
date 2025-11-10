@@ -1,8 +1,8 @@
 timing_runs:
   - name: "nproc_shell"
-    command: "nproc --all > /dev/null"
+    command: "nproc --all"
   - name: "python_cpu_count"
-    command: "python3 -c 'import os; os.cpu_count()' > /dev/null"
+    command: "python3 -c 'import os; os.cpu_count()'"
   # - name: "cnproc_binary"
     # command: "./cnproc > /dev/null"
 

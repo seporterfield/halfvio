@@ -16,6 +16,7 @@ def generate_timing_data(
 
     hyperfine_command = [
         "hyperfine",
+        "-N",
         "-r",
         str(repititions),
         "--export-json",
