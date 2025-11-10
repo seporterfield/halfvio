@@ -3,7 +3,9 @@ timing_runs:
     command: "nproc --all"
   - name: "python_cpu_count"
     command: "python3 -c 'import os; os.cpu_count()'"
-  # For a third distribution run `gcc -o cnproc cnproc.c`
+  - name: "lscpu"
+    command: "lscpu"
+  # For a fourth distribution run `gcc -o cnproc cnproc.c`
   # And uncomment:
   # - name: "cnproc_binary" 
     # command: "./cnproc > /dev/null"
