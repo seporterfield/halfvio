@@ -1,6 +1,5 @@
 run: fmt lint
     #!/usr/bin/env bash
-    gcc -o cnproc cnproc.c
     export TIMINGS_PARQUET="timings.parquet"
     export PLOT_PNG="timings.png"
     uv run halfvio.py
