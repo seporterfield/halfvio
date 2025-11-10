@@ -15,3 +15,5 @@ wheels/
 *.parquet
 *.png
 cnproc
+
+!timings.png

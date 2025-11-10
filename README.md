@@ -5,6 +5,9 @@ A useful hyperfine and R plotting workflow.
 ```bash
 just run
 ```
+Open `timings.png` and you should see half violin plots.
+![half violin plot of two distributions](timings.png)
+
 
 ## Requirements
 - hyperfine ~ 1.18.0
