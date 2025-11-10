@@ -8,6 +8,6 @@ timing_runs:
   # For a fourth distribution run `gcc -o cnproc cnproc.c`
   # And uncomment:
   # - name: "cnproc_binary" 
-    # command: "./cnproc > /dev/null"
+    # command: "./cnproc"
 
 repetitions: 1000
