@@ -1,4 +1,4 @@
-A useful hyperfine and R plotting workflow.
+A hyperfine and R plotting workflow.
 
 ## Usage
 
