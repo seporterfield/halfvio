@@ -1,11 +1,11 @@
-library(arrow)
+library(nanoparquet)
 library(ggplot2)
 library(scales, include.only = c("trans_breaks", "trans_format", "math_format"))
 library(gghalves)
 
 TIMINGS_PARQUET <- Sys.getenv("TIMINGS_PARQUET")
 PLOT_PNG <- Sys.getenv("PLOT_PNG")
-timing_data <- read_parquet(TIMINGS_PARQUET)
+timing_data <- nanoparquet::read_parquet(TIMINGS_PARQUET)
 
 timing_plot <- ggplot(timing_data, aes(x = method, y = run_time_s, fill = method)) +
   geom_half_violin(
